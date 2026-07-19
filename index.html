@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт — Дань Хэн</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-image: url("images/Frame 15.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 16px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo-text span {
+            color: #c4a882;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        nav a:hover {
+            color: #c4a882;
+        }
+
+        .banner-full {
+            width: 100%;
+            height: 500px;
+            background-image: url("images/даня.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .banner-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner-full .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-full .banner-content h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+
+        .banner-full .banner-content .subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #c4a882;
+            color: #23221D;
+            padding: 14px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 25px;
+        }
+
+        .btn:hover {
+            background: #b3966e;
+            transform: scale(1.03);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .about-section,
+        .services-section,
+        .lore-section,
+        .youth-section,
+        .quintet-section,
+        .exile-section,
+        .contact-section {
+            background-image: url("images/фон.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .about-section::before,
+        .services-section::before,
+        .lore-section::before,
+        .youth-section::before,
+        .quintet-section::before,
+        .exile-section::before,
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+        }
+
+        .about-section .container,
+        .services-section .container,
+        .lore-section .container,
+        .youth-section .container,
+        .quintet-section .container,
+        .exile-section .container,
+        .contact-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-section h2,
+        .services-section h2,
+        .lore-section h2,
+        .youth-section h2,
+        .quintet-section h2,
+        .exile-section h2,
+        .contact-section h2 {
+            color: #c4a882;
+        }
+
+        .about-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #d0d8e0;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        .about-text .quote-sign {
+            font-size: 28px;
+            color: #c4a882;
+            opacity: 0.6;
+        }
+
+        .about-text .author-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #c4a882;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .about-text .author-name span {
+            color: #c4a882;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .grid-2 img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d0d8e0;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #c4a882;
+        }
+
+        .card p {
+            color: #b8c4d0;
+        }
+
+        .lore-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .lore-image-placeholder {
+            background: rgba(42, 41, 37, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .lore-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            object-fit: cover;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .lore-text h3 {
+            color: #c4a882;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .lore-text .subtitle {
+            color: #8899aa;
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .lore-text p {
+            margin-bottom: 14px;
+            color: #ccd7e0;
+        }
+
+        .lore-text strong {
+            color: #f0f4fa;
+        }
+
+        .lore-text ul {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .lore-text ul li {
+            padding: 8px 0 8px 28px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23c4a882" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>') left center no-repeat;
+            background-size: 18px;
+            color: #ccd7e0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lore-text ul li:last-child {
+            border-bottom: none;
+        }
+
+        .rovell-mystery {
+            margin-top: 20px;
+            padding: 20px 24px;
+            background: rgba(196, 168, 130, 0.08);
+            border-left: 3px solid #c4a882;
+            border-radius: 8px;
+            font-style: italic;
+            color: #b8c4d0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .rovell-mystery .highlight {
+            color: #c4a882;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .rovell-mystery .signature {
+            display: block;
+            text-align: right;
+            color: #c4a882;
+            font-style: normal;
+            font-weight: 500;
+            margin-top: 10px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .youth-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .youth-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
+            min-height: 300px;
+        }
+
+        .youth-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .youth-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #d0d8e0;
+        }
+
+        .youth-text p {
+            margin-bottom: 16px;
+        }
+
+        .youth-text .drop-cap {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c4a882;
+            float: left;
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        .youth-text .highlight-text {
+            color: #c4a882;
+            font-weight: 600;
+        }
+
+        .youth-text em {
+            color: #b8c4d0;
+        }
+
+        .youth-label {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c4a882;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .quintet-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .quintet-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
+            min-height: 300px;
+        }
+
+        .quintet-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .quintet-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #d0d8e0;
+        }
+
+        .quintet-text p {
+            margin-bottom: 16px;
+        }
+
+        .quintet-text .drop-cap {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c4a882;
+            float: left;
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        .quintet-text .highlight-text {
+            color: #c4a882;
+            font-weight: 600;
+        }
+
+        .quintet-text em {
+            color: #b8c4d0;
+        }
+
+        .quintet-label {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c4a882;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .exile-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .exile-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
+            min-height: 300px;
+        }
+
+        .exile-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .exile-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #d0d8e0;
+        }
+
+        .exile-text p {
+            margin-bottom: 16px;
+        }
+
+        .exile-text .drop-cap {
+            font-size: 48px;
+            font-weight: 700;
+            color: #c4a882;
+            float: left;
+            margin-right: 10px;
+            line-height: 1;
+        }
+
+        .exile-text .highlight-text {
+            color: #c4a882;
+            font-weight: 600;
+        }
+
+        .exile-text em {
+            color: #b8c4d0;
+        }
+
+        .exile-label {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c4a882;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .contact-section p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #d0d8e0;
+        }
+
+        .btn-telegram {
+            display: inline-block;
+            background: #c4a882;
+            color: #23221D;
+            padding: 16px 50px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-telegram:hover {
+            background: #b3966e;
+            transform: scale(1.03);
+        }
+
+        footer {
+            background: #23221D;
+            color: #ccc;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #c4a882;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #dcc4a8;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .banner-full {
+                height: 300px;
+            }
+            .banner-full .banner-content h1 {
+                font-size: 28px;
+            }
+            .banner-full .banner-content .subtitle {
+                font-size: 16px;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .grid-2 img {
+                order: -1;
+                height: 250px;
+            }
+            .lore-grid {
+                grid-template-columns: 1fr;
+            }
+            .youth-row {
+                grid-template-columns: 1fr;
+            }
+            .quintet-row {
+                grid-template-columns: 1fr;
+            }
+            .exile-row {
+                grid-template-columns: 1fr;
+            }
+            .youth-image {
+                min-height: 200px;
+                order: -1;
+            }
+            .youth-image img {
+                min-height: 200px;
+            }
+            .quintet-image {
+                min-height: 200px;
+                order: -1;
+            }
+            .quintet-image img {
+                min-height: 200px;
+            }
+            .exile-image {
+                min-height: 200px;
+                order: -1;
+            }
+            .exile-image img {
+                min-height: 200px;
+            }
+            .logo-text {
+                font-size: 22px;
+            }
+            .lore-image-placeholder img {
+                min-height: 250px;
+            }
+            .contact-section h2 {
+                font-size: 28px;
+            }
+            .contact-section p {
+                font-size: 17px;
+            }
+            .btn-telegram {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== ШАПКА ===== -->
+<header>
+    <div class="container">
+        <div class="logo-text">Rovelle</div>
+        <nav>
+            <ul>
+                <li><a href="#about">О себе</a></li>
+                <li><a href="#services">Жизненный путь</a></li>
+                <li><a href="#lore">Дань Хэн</a></li>
+                <li><a href="#youth">Юность</a></li>
+                <li><a href="#quintet">Заоблачный квинтет</a></li>
+                <li><a href="#exile">Изгнание и после</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== БАННЕР ===== -->
+<section class="banner-full">
+    <div class="banner-content">
+        <h1>Полная история</h1>
+        <div class="subtitle">Дань Хэна Пожирателя лун</div>
+        <a href="#lore" class="btn">Читать далее</a>
+    </div>
+</section>
+
+<!-- ===== О СЕБЕ ===== -->
+<section id="about" class="section about-section">
+    <div class="container">
+        <h2>О себе</h2>
+        <div class="grid-2">
+            <div class="about-text">
+                <p><span class="quote-sign">"</span></p>
+                <p>Я — тот, кто не оставляет следов. Тот, чья история началась не с первого шага, а с одного мгновения. Я — не лицо, не тело, не голос. Я — лишь отражение того, что однажды увидел. Мой путь начался с Пожирателя. И я пошёл за ним.</p>
+                <p>Я — <strong>Karasu Rovelle</strong>. Добро пожаловать.</p>
+                <p>Возможно, ты узнаешь что-то, чего не знал. Здесь, мой дорогой друг, ты будешь разгадывать загадки и придёшь к истине.</p>
+                <span class="author-name">— <span>Karasu Rovelle</span></span>
+            </div>
+            <div>
+                <img src="images/карасу.png" alt="Karasu Rovelle">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ЖИЗНЕННЫЙ ПУТЬ ===== -->
+<section id="services" class="section services-section">
+    <div class="container">
+        <h2>Жизненный путь</h2>
+        <div class="cards">
+            <div class="card"><h3>Юность</h3><p>Юные годы Дань Хэна, его становление как личности и первые шаги на пути воина.</p></div>
+            <div class="card"><h3>Жизнь в Ордене</h3><p>Период служения в Заоблачном квинтете, дружба с Цзин Юанем и другими членами ордена.</p></div>
+            <div class="card"><h3>Изгнание и после</h3><p>Изгнание с Лофу, путешествие на Звёздном экспрессе и принятие силы Пожирателя Луны.</p></div>
+        </div>
+    </div>
+</section>
+<!-- ===== СЕКЦИЯ: ДАНЬ ХЭН ===== -->
+<section id="lore" class="section lore-section">
+    <div class="container">
+        <h2>Дань Хэн · Пожиратель Луны</h2>
+        <div class="lore-grid">
+            <div class="lore-image-placeholder">
+                <img src="images/hJ2tlB3sXf5-aI_PDfiQDJpv4abt5rZ2yK4vFnldsRQ3URn2HCaeaH_W0XNYPbfYS9CLrwU0SPuo3kPckoAci1X6.jpg" alt="Дань Хэн">
+            </div>
+            <div class="lore-text">
+                <h3>Имбибитор Лунаэ</h3>
+                <div class="subtitle">Верховный старейшина Лофу · Наследник Лазурного дракона</div>
+                <p>
+                    <strong>Дань Хэн</strong> — холодный и сдержанный молодой человек, путешествующий на Звёздном экспрессе. Он является <strong>перерождением Дань Фэна</strong>, бывшего Верховного старейшины Лофу, носителя титула «Пожиратель Луны» (Imbibitor Lunae).
+                </p>
+                <p>
+                    В прошлой жизни Дань Фэн совершил тяжкое преступление — <strong>«Мятеж Пожирателя Луны»</strong>. Он использовал запретную <strong>Аркану Трансмутации</strong>, пытаясь воскресить погибшую подругу и дать видьядхарам возможность вырваться из цикла перерождений. Эксперимент обернулся катастрофой — было создано неконтролируемое драконье порождение, принёсшее разрушение Скальегорскому Водопаду.
+                </p>
+                <p>
+                    В наказание Дань Фэн был подвергнут <strong>насильственному перерождению</strong> в Дань Хэна, а затем изгнан с Лофу. Позже, во время кризиса Звёздной плесени на Лофу, Дань Хэн принял остаточную силу своего прошлого воплощения и вновь обрёл облик <strong>Пожирателя Луны</strong>.
+                </p>
+                <ul>
+                    <li><strong>Тип боя (элемент):</strong> Мнимый</li>
+                    <li><strong>Путь:</strong> Разрушение</li>
+                    <li><strong>Оружие:</strong> Копьё «Пронзающее облака» (Cloud-Piercer)</li>
+                    <li><strong>Фракция:</strong> Звёздный экспресс</li>
+                    <li><strong>Связан с:</strong> Заоблачный квинтет, Блэйд, Цзин Юань</li>
+                </ul>
+                <div class="rovell-mystery">
+                    <p>«Но знаешь ли ты, что за этой историей стоит <span class="highlight">тень</span>, которая видит всё? Что каждый шаг Дань Хэна — это не просто шаг, а <span class="highlight">отражение</span> того, кто когда-то давно выбрал путь между мирами?»</p>
+                    <p>«Говорят, что <span class="highlight">Ровэлль</span> — не имя. Это эхо, которое остаётся после того, как тьма рассеивается. И если ты слышишь этот шёпот — значит, ты уже часть этой истории. Или... она — часть тебя?»</p>
+                    <p>«Смотри внимательнее, мой друг. В каждой легенде есть тот, кто её рассказывает. И иногда рассказчик — это <span class="highlight">самая важная тайна</span>.»</p>
+                    <span class="signature">— Karasu Rovelle</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===== СЕКЦИЯ: ЮНОСТЬ ===== -->
+<section id="youth" class="section youth-section">
+    <div class="container">
+        <h2>Юность</h2>
+        <div class="youth-row">
+            <div class="youth-image">
+                <img src="images/ЮНОСТЬ.jpg" alt="Юность Дань Хэна">
+            </div>
+            <div class="youth-text">
+                <div class="youth-label">Юность · Youth</div>
+                <p>
+                    <span class="drop-cap">О</span>н не был тем, кто рвётся в бой с криком и мечом наготове. Он не был и тем, кто прячется за спинами других, дрожа от страха. Дань Хэн был <span class="highlight-text">где-то посередине</span> — слишком ленивым для того, чтобы доказывать свою силу, и слишком гордым, чтобы показывать слабость.
+                </p>
+                <p>
+                    Когда другие юные воины Лофу соревновались, кто быстрее сразит врага или кто громче произнесёт имя своего клана, Дань Хэн просто стоял в стороне. Он наблюдал. Иногда он зевал. Но никогда — никогда — он не делал лишнего движения, если в этом не было необходимости.
+                </p>
+                <p>
+                    Говорят, однажды к нему подошёл один из старейшин и спросил: <em>«Почему ты не показываешь свою силу, мальчик? Ты мог бы быть лучшим из лучших».</em>
+                </p>
+                <p>
+                    Дань Хэн, не поднимая глаз, ответил: <em>«А зачем? Если я покажу свою силу — меня заставят её использовать. А я слишком ленив для того, чтобы быть чьим-то оружием».</em>
+                </p>
+                <p>
+                    И он был прав. В те годы он действительно был <span class="highlight-text">слишком ленивым</span>, чтобы кого-то впечатлять. Но эта лень скрывала то, что никто не мог разглядеть: <span class="highlight-text">огромный потенциал</span>, который однажды пробудится и изменит судьбу всего Лофу.
+                </p>
+                <p style="font-style: italic; color: #b8c4d0; font-size: 15px;">
+                    «Он не был ни лучшим, ни худшим. Он просто был — и этого было достаточно, чтобы однажды стать тем, кого запомнят навсегда.»
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== СЕКЦИЯ: ЗАОБЛАЧНЫЙ КВИНТЕТ ===== -->
+<section id="quintet" class="section quintet-section">
+    <div class="container">
+        <h2>Заоблачный квинтет</h2>
+        <div class="quintet-row">
+            <div class="quintet-text">
+                <div class="quintet-label">Заоблачный квинтет · Cloud Quintet</div>
+                <p>
+                    <span class="drop-cap">В</span>нутри Заоблачного квинтета динамика изменилась. Рядом с яростной Цзинлю, хитроумным стратегом Цзин Юанем, вспыльчивым Инсином и отважной лётчицей Байхэн характер Дань Фэна раскрылся иначе. Его дружба с генералом строилась на контрасте: где тот видел шахматную партию из тысяч фигур, старейшина напоминал о цене одного шага. Они редко говорили о чувствах, но их связь была крепче стали. При изгнании борисинцев именно непоколебимое присутствие Дань Фэна служило гарантом удержания флангов любой ценой.
+                </p>
+                <p>
+                    <span class="highlight-text">С Инсином</span> же сложились братские отношения. Оба были чужаками среди долгоживущих видов, оба носили шрамы прошлого. Их сблизила любовь к мастерству: один создавал оружие, другой владел им с пугающей грацией. Парные наручи они носили как символ неразрывной связи двух душ, нашедших семью посреди вечной войны.
+                </p>
+            </div>
+            <div class="quintet-image">
+                <img src="images/quintet-new.jpg" alt="Заоблачный квинтет">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===== СЕКЦИЯ: ИЗГНАНИЕ И ПОСЛЕ ===== -->
+<section id="exile" class="section exile-section">
+    <div class="container">
+        <h2>Изгнание и после</h2>
+        <div class="exile-row">
+            <div class="exile-image">
+                <img src="images/8QoU8l7bLUiSQmtwaXcGPIfGWZdPTpTGfi-1kgOL55hrIqQHUyi144Tz07sVnaYcBcfZfA70pqlu_eF4wnYBXbu_.jpg" alt="Изгнание Дань Хэна">
+            </div>
+            <div class="exile-text">
+                <div class="exile-label">Изгнание и после · Exile and After</div>
+                <p><span class="drop-cap">П</span>ечать клана разбилась о камни. Изгнание из Облачных Рыцарей Лофу было тихим: Дань Хэн просто шагнул в туман Сяньчжоу, став никем. Он брел сквозь чужие миры, пока гравитация ржавого ковчега не швырнула его на палубу. Там, среди космического мусора, сидела <span class="highlight-text">Ровэлль</span>. Серебряные волосы, золотые провалы глаз вместо белков. Она даже не повернула головы.</p>
+                <p>— Тебя вышвырнули за то, что ты отказался быть мечом, — её голос звучал как скрежет металла. — Они хотели оружие. Я предлагаю тебе стать великим.</p>
+                <p>Она протянула руку. В этом союзе не было места планам. Ровэлль никогда их не слушала, действуя на чистых инстинктах хищника, бросая флот в атаку просто потому, что цвет на радаре раздражал ей сетчатку. Для неё война была хаотичным танцем.</p>
+                <p>Дань Хэн стал её якорем. Пока наставница танцевала на грани безумия, он стоял по правую руку, читая её молчание и превращая нелогичные броски в идеальные удары. Его лень сменилась мёртвой сосредоточенностью. Больше не чьё-то потенциальное оружие, он стал тенью той, кто предлагала миру сгореть дотла. Путь назад в Лофу был навсегда стерт из его памяти.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== СЕКЦИЯ: КОНТАКТЫ ===== -->
+<section id="contact" class="section contact-section">
+    <div class="container" style="max-width:800px; margin:0 auto; text-align:center;">
+        <h2>Хотите узнать ещё больше таких историй?</h2>
+        <p style="font-size:20px; line-height:1.8; margin-bottom:30px;">
+            Заходи в <span style="color:#c4a882; font-weight:600;">маленький дворец</span>, 
+            где тайны становятся явью, где твои идеи реализуются с помощью таких же искателей правды, как ты.
+        </p>
+        <a href="https://t.me/tri_dnya_skorbi" target="_blank" class="btn-telegram">
+            🔗 Присоединиться в Telegram
+        </a>
+    </div>
+</section>
+
+<!-- ===== ФУТЕР ===== -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 МойСайт. Все права защищены.</p>
+        <p style="margin-top:6px;">
+            <a href="#">Политика конфиденциальности</a> &middot;
+            <a href="#">Telegram</a> &middot;
+            <a href="#">Instagram</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
